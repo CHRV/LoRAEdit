@@ -999,7 +999,6 @@ def make_demo(
                     None,
                     label="Input Frame",
                     every=1,
-                    selectable=True, 
                     interactive=True
                 )
                 with gr.Row():
