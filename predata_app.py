@@ -1112,7 +1112,7 @@ def make_demo(
             message += f" {sam_message}"
             
             # Show success message
-            gr.Success(f"Successfully loaded {final_frames} frame images!")
+            gr.Info(f"Successfully loaded {final_frames} frame images!")
             
             # Generate default output path
             default_output_path = prompts.get_default_output_path()
@@ -1262,7 +1262,7 @@ def make_demo(
                 message += f" {sam_message}"
                 
                 # Show success message
-                gr.Success(f"Successfully extracted {extracted_frames} frames! SAM features ready.")
+                gr.Info(f"Successfully extracted {extracted_frames} frames! SAM features ready.")
                 
                 # Generate default output path
                 default_output_path = prompts.get_default_output_path()
@@ -1323,7 +1323,7 @@ def make_demo(
         def run_tracker_with_message():
             result = prompts.run_tracker()
             if result[0] and result[1]:  # If videos were successfully returned
-                gr.Success("Object tracking completed! Please check the generated videos.")
+                gr.Info("Object tracking completed! Please check the generated videos.")
             return result
 
         def update_learning_rate_on_precision_change(precision):
@@ -1349,7 +1349,7 @@ def make_demo(
                                              learning_rate, int(save_every_n_epochs), 
                                              int(epochs), precision)
             if "complete" in result.lower() or "success" in result.lower() or "finished" in result.lower():
-                gr.Success("Data processing and saving completed! Please follow the instructions at the top of the page for LoRA training.")
+                gr.Info("Data processing and saving completed! Please follow the instructions at the top of the page for LoRA training.")
             elif "error" in result.lower() or "failed" in result.lower():
                 gr.Warning(f"Save failed: {result}")
             else:
